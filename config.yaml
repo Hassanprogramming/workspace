@@ -1,0 +1,6 @@
+sender_config:
+server_ip: "192.168.1.1" # IP of the Broker server
+server_port: 6280 # port of Broker Server
+send_rate: 10 # An Integer that determines the time interval between
+data Transfer (milliseconds)
+celery_task_name: "task_name" # Name of the task
