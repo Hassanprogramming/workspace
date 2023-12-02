@@ -51,17 +51,3 @@ git clone https://github.com/Hassanprogramming/workspace.git
 cd workspace
 pip install -r requirements.txt
 # after creaing your environment do those jobs.
-
-## In Persian language
-پیش‌نیازها
-قبل از نصب Workspace، اطمینان حاصل کنید که موارد زیر را نصب کرده‌اید:
-
-Python
-Docker
-Redis
-سایر وابستگی‌ها (هر نیاز اضافی ذکر شده)
-نصب
-ریپو را کلون کنید و وابستگی‌های مورد نیاز را نصب کنید:
-git clone https://github.com/Hassanprogramming/workspace.git
-cd workspace
-pip install -r requirements.txt
