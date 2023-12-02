@@ -57,3 +57,7 @@ git clone https://github.com/Hassanprogramming/workspace.git
 cd workspace
 pip install -r requirements.txt
 # after creaing your environment do those jobs.
+
+# Connect to the remote machine and change username and pass base on your machine in this line in tasks.py
+
+        ssh.connect(ip_address, username='your_username', password='your_pass')
