@@ -2,10 +2,34 @@ from celery import shared_task
 import paramiko
 from .models import Log
 
-@shared_task
-def send_configuration(ip_address, configuration):
-    # Use ssh_library to send the configuration to the client with the given IP address
-    paramiko.send(ip_address, configuration)
+@shared_task(name="task_name")
+def send_configuration(ip_address, configuration_path):
+    # Create an SSH client
+    ssh = paramiko.SSHClient()
+    ssh.set_missing_host_key_policy(paramiko.AutoAddPolicy())
+
+    try:
+        # Connect to the remote machine and change username and pass base on your machine
+        ssh.connect(ip_address, username='your_username', password='your_pass')
+
+        # Open an SFTP session to upload the configuration file
+        with ssh.open_sftp() as sftp:
+            sftp.put(configuration_path, 'config.yaml')
+
+    except paramiko.AuthenticationException:
+        # Handle authentication failure
+        print("Authentication failed. Please check your credentials.")
+    except paramiko.SSHException as e:
+        # Handle general SSH connection issues
+        print(f"SSH connection failed: {str(e)}")
+    except Exception as e:
+        # Handle other exceptions
+        print(f"An error occurred: {str(e)}")
+
+    finally:
+        # Close the SSH connection
+        ssh.close()
+
 
 @shared_task
 def process_received_data(data):

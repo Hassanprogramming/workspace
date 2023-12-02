@@ -8,4 +8,4 @@ def send_configuration_view(request):
     configuration = parse_configuration('config.yaml')
     ip_address = '192.168.1.2'  # client IP address
     send_configuration.delay(ip_address, configuration)
-    return render(request, 'success.html')
+    return render(request, 'request/success.html')
