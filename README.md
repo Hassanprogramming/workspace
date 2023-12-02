@@ -41,7 +41,7 @@ Before setting up Workspace, make sure you have the following installed:
 - Python
 - Docker
 - Redis
-- Other dependencies (list any additional requirements)
+- Other dependencies (list any additional requirements in requirements.txt)
 
 ### Installation
 
